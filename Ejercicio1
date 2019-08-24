@@ -1,0 +1,44 @@
+int p, j;
+float aux;
+
+void setup() {
+  begin();
+  fullScreen(P3D);
+}
+
+void draw() {
+ if(mousePressed == true){
+    for(int i = 0; i < vector.length-1; i++){
+    for(int j = 0; j < vector.length-1; j++){
+      if(vector[j+1]<vector[j]){
+         float aux=vector[j+1];
+         vector[j+1]=vector[j];
+         vector[j]=aux;
+        } 
+      }
+    }
+  }
+  show();
+}
+
+void show() {
+  background(255);
+  for (int i=0; i<vector.length; i++) {
+    pushMatrix();
+    stroke(20);
+    translate(map(i, 0, vector.length, width/vector.length, width), height/2);
+    rotateX(0.5);
+    noFill();
+    box(vector[i]);
+    popMatrix();
+  }
+  
+}
+
+void begin() {
+
+  for (int i=0; i<vector.length; i++) {
+    vector[i]=random(100);
+  }
+}
+
