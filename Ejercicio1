@@ -1,3 +1,5 @@
+float[] vector=new float[10];
+float temp, actual;
 int p, j;
 float aux;
 
@@ -41,4 +43,3 @@ void begin() {
     vector[i]=random(100);
   }
 }
-
